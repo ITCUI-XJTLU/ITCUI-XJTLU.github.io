@@ -29,22 +29,22 @@
 <meta property="og:image" content="http://example.com/img/bert_pipeline.PNG">
 <meta property="og:image" content="http://example.com/img/table_base.PNG">
 <meta property="og:image" content="http://example.com/img/bert_transformer.png">
-<meta property="og:image" content="http://example.com/img/table_trans.png">
-<meta property="og:image" content="http://example.com/img/bert_cnn.png">
-<meta property="og:image" content="http://example.com/img/bert_dpcnn.png">
-<meta property="og:image" content="http://example.com/img/table_cnn.png">
-<meta property="og:image" content="http://example.com/img/da_data_length.png">
-<meta property="og:image" content="http://example.com/img/table_da.png">
-<meta property="og:image" content="http://example.com/img/table_all.png">
+<meta property="og:image" content="http://example.com/img/table_trans.PNG">
+<meta property="og:image" content="http://example.com/img/bert_cnn.PNG">
+<meta property="og:image" content="http://example.com/img/bert_dpcnn.PNG">
+<meta property="og:image" content="http://example.com/img/table_cnn.PNG">
+<meta property="og:image" content="http://example.com/img/da_data_length.PNG">
+<meta property="og:image" content="http://example.com/img/table_da.PNG">
+<meta property="og:image" content="http://example.com/img/table_all.PNG">
 <meta property="og:image" content="http://example.com/img/bert_f1.png">
 <meta property="og:image" content="http://example.com/img/bert_auc.png">
 <meta property="og:image" content="http://example.com/img/clinical_f1.png">
 <meta property="og:image" content="http://example.com/img/clinical_auc.png">
 <meta property="og:image" content="http://example.com/img/longformer.png">
-<meta property="og:image" content="http://example.com/img/table_longformer.png">
+<meta property="og:image" content="http://example.com/img/table_longformer.PNG">
 <meta property="og:image" content="http://example.com/img/f1_dis_clinicallong.png">
 <meta property="article:published_time" content="2022-09-07T07:34:34.000Z">
-<meta property="article:modified_time" content="2022-09-09T15:57:24.029Z">
+<meta property="article:modified_time" content="2022-09-09T16:04:14.648Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="research, deep-learning, nlp, BERT , fine-tune , Clinical-ERT , medical code prediction , MIMIC III">
 <meta name="twitter:card" content="summary_large_image">
@@ -312,12 +312,12 @@
 <h2 id="4-1-BERT-FCN"><a href="#4-1-BERT-FCN" class="headerlink" title="4.1 BERT + FCN"></a>4.1 BERT + FCN</h2><p>Firstly, let’s look at how bert models perform without any other techniques.Here, we use a common pipeline:<br><img src="/img/bert_pipeline.PNG" srcset="/img/loading.gif" lazyload alt="BERT + Full Connected Network"><br>we fine-tune the two models, BERT-based and Clinical-BERT , by 12 epochs, and the result is:<br><img src="/img/table_base.PNG" srcset="/img/loading.gif" lazyload alt="BERT and Clinical-BERT Performence"></p>
 <p>It appears that the performence of Clinical-BERT is much better than BERT. It because that Clinical-BERT has beed pre-trained buy mang medical corpus, including MIMIC III and PubMed. Now, we will try to improve thier performence</p>
 <h2 id="4-2-HierBERT-Transformer"><a href="#4-2-HierBERT-Transformer" class="headerlink" title="4.2 HierBERT + Transformer"></a>4.2 HierBERT + Transformer</h2><p>A natrual idea to improve the maximum length of BERT is to use different BERT models and let them encode different parts of inputs. We call this strategy as <strong>hierarchical bert</strong>. And then we could combine the features extracted by BERT models by a transformer layer and send the features to a full connected network (FCN). As shown below:<br><img src="/img/bert_transformer.png" srcset="/img/loading.gif" lazyload alt="HierBERT + Transformer"></p>
-<p>After training 12 epochs , the perfoemce is :<br><img src="/img/table_trans.png" srcset="/img/loading.gif" lazyload alt="Performence of HierBERT+Trans and HierClinical+Trans"></p>
+<p>After training 12 epochs , the perfoemce is :<br><img src="/img/table_trans.PNG" srcset="/img/loading.gif" lazyload alt="Performence of HierBERT+Trans and HierClinical+Trans"></p>
 <p>For BERT , although the model could take longer input text , three important scores (f1 micro, auc macro , auc micro) decreases. It is strange . It might because that , the most valuble data is among the former part of input or when data read more data , there are more noise.   </p>
 <p>For Clinical-BERT, the imporvement is obvious. F-1 (macro) increase 3% , it is a huge progress . AUC (macro) and AUC (micro) scores inrease 1% . It seems that longer input texts is helpful for the Clinical-BERT model to do the preidction .  </p>
-<h2 id="4-3-HierBERT-CNN-x2F-DPCNN"><a href="#4-3-HierBERT-CNN-x2F-DPCNN" class="headerlink" title="4.3 HierBERT + CNN &#x2F; DPCNN"></a>4.3 HierBERT + CNN &#x2F; DPCNN</h2><p>In 4.2, we use a transformer encoder to deal with the features extracted by separate BERT models. Now, we try to replace the transformer encoder by a simple CNN network and a DPCNN network (paper) .<br><img src="/img/bert_cnn.png" srcset="/img/loading.gif" lazyload alt="HierBERT + CNN Pipeline"><br><img src="/img/bert_dpcnn.png" srcset="/img/loading.gif" lazyload alt="HierBERT + DPCC Pipeline"></p>
+<h2 id="4-3-HierBERT-CNN-x2F-DPCNN"><a href="#4-3-HierBERT-CNN-x2F-DPCNN" class="headerlink" title="4.3 HierBERT + CNN &#x2F; DPCNN"></a>4.3 HierBERT + CNN &#x2F; DPCNN</h2><p>In 4.2, we use a transformer encoder to deal with the features extracted by separate BERT models. Now, we try to replace the transformer encoder by a simple CNN network and a DPCNN network (paper) .<br><img src="/img/bert_cnn.PNG" srcset="/img/loading.gif" lazyload alt="HierBERT + CNN Pipeline"><br><img src="/img/bert_dpcnn.PNG" srcset="/img/loading.gif" lazyload alt="HierBERT + DPCC Pipeline"></p>
 <p>The reasons we make this try is that CNN-based models perform pretty well on this task. This might because compared with transformer models, such as BERT, which are good at comprehend the meaning of text, CNN-based models are more likely focus on some key phraes useful for the prediction. So, we hope to make use of the strength of both neural networks. After 12 epochs, the result is:</p>
-<p>Now , after trainning 12 epochs , the result is :<br><img src="/img/table_cnn.png" srcset="/img/loading.gif" lazyload alt="The result of HierBERT + CNN and HierBERT + DPCNN"></p>
+<p>Now , after trainning 12 epochs , the result is :<br><img src="/img/table_cnn.PNG" srcset="/img/loading.gif" lazyload alt="The result of HierBERT + CNN and HierBERT + DPCNN"></p>
 <p>For BERT , it is suprising that when we replace transformer blocks by a simple CNN network, there is a huge imporvement . F-1 (macro) and F-1 (micro) score increases <strong>5% and 4</strong> respective, while AUC scores (macro and micro) grows 1% and 2% . We do not know why this happen. why CNN layer could extract more important features than transformer blocks. Besides, since CNN layer could deal with the features from BERT very well , it is supposed that DPCNN could do the work better , since it use residual network and therefore could catch longer n-gram words. But this idea does not happen. Contrary to usefule for the prediction task , BERT + CNN performs worse that the origin model. We have not idea about this phenomenon. </p>
 <p>For Clinical-BERT , there is a different story. Althogh CNN layer could increase the performence of BERT , it does not work for Clinical-BERT. It seems that transformer is more suitble for Clinical-BERT . It is a intresting finding. In the future , if you use different pretrained-models , you may need to change corresponding components to cooperate with them .  </p>
 <h2 id="4-4-MultiBERT-Data-Augmentation"><a href="#4-4-MultiBERT-Data-Augmentation" class="headerlink" title="4.4 MultiBERT + Data Augmentation"></a>4.4 MultiBERT + Data Augmentation</h2><p>Apart from changing the design of models, we could also do the data augmentation to improve the performence. In fact, due to the limit of computational rescource, we could at most use 3 different BERT models to take the input text, which means that the heirarchical structure discussed in 4.2 and 4.3 could only read about 512*3 &#x3D; 1536 words. But, due to the rule of tokenization of BERT , one word may be splited into different parts for models, the numble of word our heirarchical model could deal with would decrease to about 1200 words. From the distribution of the length of input text in 3.0 , it seems that our model could still not make full use of data . So, we implement the following data augmentation:</p>
@@ -326,13 +326,13 @@
 <li>In trainning process , if the length of input text  is larger than 1600 , we split the text into multiple text chunks , so that each of the length of text chunk is about 1000 words . If the length of some text chunk is has to below 800 , we use the raw text to complement the text chunks , so that each of text chunks has about 1000 words . </li>
 <li>In testing process, if the length of text input is larger than 1600, we also use extractive text summarization model to reduce the input . In the following, we will compare the performence of models by different test input text . (Thne original one is just to truncate the input when the length is over 1600 , the newer one is to summarize the input text .) Since we do not sure whether the summarization of test data could improve the performence , we do use both of data (raw text data and summarized data, which will be called <strong>DA1 and DA2</strong> in the following part ) .</li>
 </ul>
-<p>Now , after data augmentation , let look at how data distribution :<br><img src="/img/da_data_length.png" srcset="/img/loading.gif" lazyload alt="Dataset Distribution after Data Augmentation"></p>
+<p>Now , after data augmentation , let look at how data distribution :<br><img src="/img/da_data_length.PNG" srcset="/img/loading.gif" lazyload alt="Dataset Distribution after Data Augmentation"></p>
 <p>It seems that most of the length of data concentrate on abou 1000 to 1200 words . This is what we expect. Because we do not want waste ant valiable data and at the same time we do not hope any specific  input text is too short. </p>
-<p>Now, let’s look at the result:<br><img src="/img/table_da.png" srcset="/img/loading.gif" lazyload alt="Result of HierBERT + CNN + Data Augmentation and Hier-Clinical BERT + Transformer + Data Augmentation "></p>
+<p>Now, let’s look at the result:<br><img src="/img/table_da.PNG" srcset="/img/loading.gif" lazyload alt="Result of HierBERT + CNN + Data Augmentation and Hier-Clinical BERT + Transformer + Data Augmentation "></p>
 <p>For BERT , DA1 is more useful , which means that model perfer to read the origin test data to do the prediction.  With the augmented trainning data and summurized test data , four scourses increase1% to 1.5% on average. But the performence of DA2 is not evident. It might because that CNN layer in the trainning process has already learn some valuable information of words after 512 , so the model could just use former 512 words of test data to do the prediction . The summary of test data might inlude more noise. This need more evidence to domenstrate . </p>
 <p>For Clinical-BERT , DA2 is more useful . But this increasement of performence is within 0.5% , it is not huge. At least the augmented data does do influence the performence.</p>
 <h2 id="Summary-of-five-ways"><a href="#Summary-of-five-ways" class="headerlink" title="Summary of five ways:"></a>Summary of five ways:</h2><p>Before we go to the next part , let’s review what we have done . For BERT and Clinical-BERT , we use five different ways to improve the performence (transformer , CNN, DPCNN, DA1 and DA2 ), here is the total performence:</p>
-<p><img src="/img/table_all.png" srcset="/img/loading.gif" lazyload alt="All result of 6 ways "></p>
+<p><img src="/img/table_all.PNG" srcset="/img/loading.gif" lazyload alt="All result of 6 ways "></p>
 <ul>
 <li>It seems that the hierarchical structre do improve the performence. But the positive effect to different models varies. </li>
 <li>For BERT models , using simple CNN layers to deal with the hidden features extracted by separated BERT models is more usefore . </li>
@@ -361,7 +361,7 @@
 <p><img src="/img/clinical_auc.png" srcset="/img/loading.gif" lazyload alt="AUC macro of Clinical-BERT"></p>
 <p>The analysis is prettu similar with  f-1 scores.</p>
 <h2 id="4-5-Longformer"><a href="#4-5-Longformer" class="headerlink" title="4.5 Longformer"></a>4.5 Longformer</h2><p>Apart from the techniques , we could also use some varieties of BERT , such as Longformer and Big Bird , which change the self-attention mechanism to a parser attention strategy and therefore reduce the computation cost . So such  models could take into text over 4000 words .<br><img src="/img/longformer.png" srcset="/img/loading.gif" lazyload alt="Attention Machenism: (d) is the attention strategy of clinical-longformer, each word computes attention scores near themself and only some specific tokens (such as [CLS]) could care about all other words"><br>The result is:</p>
-<p><img src="/img/table_longformer.png" srcset="/img/loading.gif" lazyload alt="The Result of Clinical-Longformer"></p>
+<p><img src="/img/table_longformer.PNG" srcset="/img/loading.gif" lazyload alt="The Result of Clinical-Longformer"></p>
 <ol>
 <li>We have to admit that the performence of Clinical-Longformer is much better than any models we have desinged. It is not suprised , because Longformer is the model that was specifically designed for dealing with long document and that has already pre-trained on MIMIC III dataset . But , if you want to use this excellent models, you have to keep in mind that the computation cost is also much  larger than any model mentioned above . You knows , some good things and some bad things .</li>
 </ol>
