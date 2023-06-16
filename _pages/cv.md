@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: "Curriculum Vitae"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +8,9 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+Updated Jun 16th, 2023. A PDF copy can be downloaded [here]({{ site.url }}/assets/Tengfei Cui - CV - US.pdf).
+
 
 Education
 ======
