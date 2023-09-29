@@ -8,11 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-Welcome to my personal website. I’m an incoming master student (thesis track) in the Department of Biostatistics at the University of Washington in Seattle. Before I joined UW Biostatistics,  I graduated from the Xi'an Jiaotong-Liverpool University with a BS degree in applied mathematics. 
+Welcome to my personal website. I am a first year master student in the Department of Biostatistics (thesis track) at the University of Washington, Seattle. Before I joined UW Biostatistics,  I graduated from the Xi'an Jiaotong-Liverpool University with a BS degree in applied mathematics. 
 My current research interests include:
 
 * Clinical trials
-* Survival Analysis
+* Causal Inference
 * Statistical Learning
 * High dimensional Statistics
 
