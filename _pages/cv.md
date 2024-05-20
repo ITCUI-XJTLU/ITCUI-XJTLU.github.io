@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Updated Jun 16th, 2023. A PDF copy can be downloaded [here]({{ site.url }}/assets/Tengfei Cui - CV - US.pdf).
+Updated Jun 16th, 2023. A PDF copy can be downloaded [here]({{ site.url }}/assets/Tengfei_CV.pdf).
 
 
 ## 1. Education
