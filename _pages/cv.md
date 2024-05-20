@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Updated Jun 16th, 2023. A PDF copy can be downloaded [here]({{ site.url }}/assets/Tengfei_CV.pdf).
+Updated May 16th, 2024. A PDF copy can be downloaded [here]({{ site.url }}/assets/Tengfei_CV.pdf).
 
 
 ## 1. Education
